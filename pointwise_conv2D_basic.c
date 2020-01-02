@@ -1,7 +1,4 @@
 #include "nn_functions.h"
-#include "arm_math.h"
-#include "arm_nnfunctions.h"
-#include "arm_nnsupportfunctions.h"
 
 /**
  * @brief Basic Q7 pointwise (1x1) convolution function

@@ -1,9 +1,8 @@
 #include "nn_functions.h"
-#include "arm_math.h"
 
 
 /**
- * @brief Fast Q7 version of 1x1 convolution (non-sqaure shape)
+ * @brief Fast Q7 pointwise (1x1) convolution function
  * @param[in]       Im_in        pointer to input tensor
  * @param[in]       dim_im_in    input tensor dimention
  * @param[in]       ch_im_in     number of input tensor channels
@@ -15,6 +14,7 @@
  * @param[in,out]   Im_out       pointer to output tensor
  * @param[in,out]   bufferA      pointer to buffer space for input 
  *
+ * @details
  * Changes from original function:
  * 1. Removed unused parameters.
  * 
@@ -64,7 +64,7 @@ void pointwise_conv_fast(const q7_t *Im_in,
             if (pBuffer == bufferA + 2 * ch_im_in)
             {
                 pOut =
-                    arm_nn_mat_mult_kernel_q7_q15_reordered(wt, bufferA, ch_im_out, ch_im_in, bias, pOut);
+                    arm_nn_mat_mult_kernel_q7_q15_reordered(wt, bufferA, ch_im_out, ch_im_in, bias_shift, out_shift, bias, pOut);
                 /* counter reset */
                 pBuffer = bufferA;
             }
