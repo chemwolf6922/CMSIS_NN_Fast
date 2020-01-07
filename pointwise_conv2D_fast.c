@@ -35,7 +35,7 @@ void pointwise_conv_fast(const q7_t *Im_in,
                          const q7_t *bias,
                          const uint16_t bias_shift,
                          const uint16_t out_shift,
-                         q15_t *Im_out,
+                         q7_t *Im_out,
                          q15_t *bufferA)
 {
 

@@ -114,7 +114,8 @@ void pointwise_conv_basic(const q7_t *Im_in,
                 sum += inA1 * inB1;
                 colCnt--;
             }
-            *pOut++ = (q7_t)__SSAT((sum + >> out_shift), 8);
+            *pOut++ = (q7_t)__SSAT((sum >> out_shift), 8);
         }
     }
 }
+

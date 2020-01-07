@@ -21,7 +21,7 @@ void pointwise_conv_fast(const q7_t *Im_in,
                          const q7_t *bias,
                          const uint16_t bias_shift,
                          const uint16_t out_shift,
-                         q15_t *Im_out,
+                         q7_t *Im_out,
                          q15_t *bufferA);
 
 
@@ -46,7 +46,7 @@ void depthwise_conv(const q7_t *Im_in,
                     const uint16_t dim_kernel,
                     const uint16_t padding,
                     const uint16_t out_shift,
-                    q15_t *Im_out,
+                    q7_t *Im_out,
                     q7_t *bufferA);
 
 void avg_pool_q7_HWC_opt(q7_t* im_in,

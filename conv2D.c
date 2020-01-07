@@ -112,9 +112,9 @@ void conv_HWC(const q7_t *Im_in,
         //Calculate two points at the same time
         for (y = 0; y < dim_im_in; y += 2)
         {
-            q15_t *pOut = Im_out + x * ch_im_out + ch_im_out * dim_im_in * y;
-            q15_t *pOut2 = pOut + ch_im_out * dim_im_in;
-            q31_t *pBias = bias;
+            q7_t *pOut = Im_out + x * ch_im_out + ch_im_out * dim_im_in * y;
+            q7_t *pOut2 = pOut + ch_im_out * dim_im_in;
+            q7_t *pBias = (q7_t*)bias;
 
             uint16_t chCnt = ch_im_out >> 1;
             q15_t *pPara = bufferB;
@@ -186,3 +186,4 @@ void conv_HWC(const q7_t *Im_in,
         }
     }
 }
+
